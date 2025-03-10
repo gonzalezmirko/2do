@@ -11,11 +11,11 @@ En su computadora, ejecute el programa y verifique que se cumple con lo pedido.
 
  */
 public class Ejercicio1 {
-	public static boolean aMenorQueB(int a,int b) {
+	public static boolean aMenorIgualB(int a,int b) {
 		return a<=b;
 	}
 	public static void prueba_for(int a, int b) {
-		if(aMenorQueB(a,b)) {
+		if(aMenorIgualB(a,b)) {
 			System.out.println("- Numeros entre a y b -");
 			for(int i=a;i<=b;i++) {
 				System.out.println("-- Numero:"+i+" --");
@@ -26,7 +26,7 @@ public class Ejercicio1 {
 		}
 	}
 	public static void prueba_while(int a,int b) {
-		if(aMenorQueB(a,b)) {
+		if(aMenorIgualB(a,b)) {
 			int i=a;
 			System.out.println("-- Numeros entre a y b --");
 			while(i<=b) {
@@ -39,7 +39,7 @@ public class Ejercicio1 {
 		}
 	}
 	public static void prueba_recursion(int a,int b) {
-		if(aMenorQueB(a,b)) {
+		if(aMenorIgualB(a,b)) {
 			System.out.println("-- Numero "+a+"--");
 			prueba_recursion(a+1,b);
 		}

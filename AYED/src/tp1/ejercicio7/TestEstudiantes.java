@@ -29,7 +29,6 @@ public class TestEstudiantes {
 		listaEstudiantes.add(est1);
 		listaEstudiantes.add(est2);
 		listaEstudiantes.add(est3);
-		/*
 		LinkedList<Estudiante> listaCopia=new LinkedList<Estudiante>(listaEstudiantes);
 		
 		System.out.println("--Lista original--");
@@ -44,7 +43,6 @@ public class TestEstudiantes {
 		imprimirE(listaEstudiantes);
 		System.out.println("--Lista copia--");
 		imprimirE(listaCopia);
-		*/
 		//Se modifican el contenido de ambas listas porque trabajan con punteros o referencias(apuntan a lo mismo)
 		//Existen varias formas de copiar una lista como por ejemplo la anterior 
 		//metodo addall() y clonar pero no se recomienda

@@ -11,7 +11,7 @@ c.	Devuelva lo pedido sin usar parámetros ni la sentencia "return".
 public class Ejercicio5 {
 	private int[]arreglo;
 	private Datos d;
-	
+	//puntoA
 	public static Datos calcularTipoReturn(int[]arreglo) {
 		int max=Integer.MIN_VALUE;
 		int min=Integer.MAX_VALUE;
@@ -27,7 +27,7 @@ public class Ejercicio5 {
 		}
 		return new Datos(max,min,suma/arreglo.length);
 	}
-	
+	//puntoB
 	public static void calcularConParametros(Datos datos) {
 		int []arreglo=datos.getArreglo();
 		int max=Integer.MIN_VALUE;
@@ -49,6 +49,7 @@ public class Ejercicio5 {
 	public Ejercicio5(int[]arreglo) {
 		this.arreglo=arreglo;
 	}
+	//puntoC
 	public void calcularSinParametrosNiReturn() {
 		int max=Integer.MIN_VALUE;
 		int min=Integer.MAX_VALUE;

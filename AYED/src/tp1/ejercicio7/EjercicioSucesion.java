@@ -69,16 +69,14 @@ public class EjercicioSucesion {
 		return lista;
 	}
 	public static void main(String[] args) {
-		//Scanner input=new Scanner(System.in);
-		//System.out.println("---Leer numero para sucesion:");
-		//int n=input.nextInt();
-		//ArrayList<Integer>listaEnteros=calcularSucesion(n);
-		/*
+		Scanner input=new Scanner(System.in);
+		System.out.println("---Leer numero para sucesion:");
+		int n=input.nextInt();
+		ArrayList<Integer>listaEnteros=calcularSucesion(n);
 		for(Integer elem:listaEnteros) {
 			System.out.println("-->Numero:"+elem);
 		}
-		*/
-		/*puntoH
+		//puntoH
 		for(Integer elem:listaEnteros) {
 			System.out.println("-->Numero:"+elem);
 		}
@@ -87,7 +85,6 @@ public class EjercicioSucesion {
 		for(Integer elem:listaEnteros) {
 			System.out.println("-->Numero:"+elem);
 		}
-		*/
 		LinkedList<Integer>listaEnteros2=new LinkedList<Integer>();
 		listaEnteros2.add(10);
 		listaEnteros2.add(10);

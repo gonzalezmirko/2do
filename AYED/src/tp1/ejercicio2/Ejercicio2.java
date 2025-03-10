@@ -16,12 +16,14 @@ public class Ejercicio2 {
 		}
 		return arreglo;
 	}
+	//iterativo
 	public static void imprimirArreglo(int[]arreglo) {
 		System.out.println("-- Arreglo de "+arreglo.length+" posiciones --");
 		for(int i=0;i<arreglo.length;i++) {
 			System.out.println("Numero :"+arreglo[i]);
 		}
 	}
+	//recursivo
 	public static void imprimirArreglo2(int[]arreglo,int n) {
 		if(n>=0) {
 			imprimirArreglo2(arreglo,n-1);

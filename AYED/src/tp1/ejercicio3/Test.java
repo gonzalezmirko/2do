@@ -25,17 +25,18 @@ public class Test {
 		}
 	}
 	public static void main(String []args){
+		//crear estudiantes
 		Estudiante est1=new Estudiante("Mirko","Gonzalez",1,"m@g","17 esq 59");
 		Estudiante est2=new Estudiante("Ana","De Pasqua",2,"a@g","80 y 7");
-		
+		//arreglo estudiantes
 		Estudiante[] arregloEstudiantes=new Estudiante[2];
 		arregloEstudiantes[0]=est1;
 		arregloEstudiantes[1]=est2;
-		
+		//profesores
 		Profesor pro1=new Profesor("Marcos","Bassini","m@b",1,"i");
 		Profesor pro2=new Profesor("Juan","Teta","j@t",2,"m");
 		Profesor pro3=new Profesor("Gonza","Bell","g@b",3,"p");
-		
+		//arreglo profesores
 		Profesor[] arregloProfesores=new Profesor[3];
 		arregloProfesores[0]=pro1;
 		arregloProfesores[1]=pro2;

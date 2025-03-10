@@ -34,8 +34,8 @@ public class TestList {
 		listaArray.add(60);
 		listaArray.add(20);
 		listaArray.add(10);
-		/*
-		//Punto B=con respecto a la implementacion definir el tipo --> LinkedList<Integer>=... pero si un uso de memoria mayor con los punteros
+		//Punto B=con respecto a la implementacion definir el tipo --> LinkedList<Integer>=... 
+		//pero si un uso de memoria mayor con los punteros
 		//Punto c=for
 		System.out.println("---Lista for normal---");
 		for(int i=0;i<listaArray.size();i++) {
@@ -54,13 +54,11 @@ public class TestList {
 		while(it.hasNext()) {
 			System.out.println("---Numero:"+it.next());
 		}
-		*/
 		if(esCapicua(listaArray)) {
 			System.out.println("--La Lista es capicua--");
 		}
 		else {
 			System.out.println("--La lista no es capicua--");
 		}
-		//aa
 	}
 }
