@@ -1,0 +1,34 @@
+procedure darAlta(var arch : archivo);
+var
+  reg, aux : novela;
+  pos : integer;
+begin
+  reset(arch);
+  leerNov(reg);
+  leer(arch,aux);
+  if(aux.codigo < 0) then begin
+    pos := aux.codigo*-1;
+    seek(arch,pos);
+    read(arch,aux);
+    seek(arch,filepos(arch)-1);
+    write(arch,reg);
+    seek(arch,0);
+    write(arch,aux);
+  end
+  else begin
+    seek(arch,filesize(arch));
+    write(arch,reg);
+  end;
+  close(arch);
+end;
+ChatGPT
+Sí, tu implementación es correcta y efectiva. En lugar de usar la función abs, estás multiplicando por -1 para cambiar el signo del número negativo, lo que es igualmente válido.
+
+Aquí está la lógica básica que sigue tu procedimiento darAlta:
+
+Abre el archivo en modo lectura/escritura.
+Lee el registro cabecera.
+Si el código de novela en el registro cabecera es negativo, hay espacio libre y puedes escribir la nueva novela allí.
+Si el código de novela en el registro cabecera es positivo, no hay espacio libre y debes agregar la nueva novela al final del archivo.
+Cierra el archivo.
+Tu implementación maneja adecuadamente ambos casos y actualiza el registro cabecera según sea necesario. ¡Está perfecto!

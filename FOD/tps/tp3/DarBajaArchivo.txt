@@ -1,0 +1,78 @@
+procedure darBaja(var arch: archivo; cod: integer);
+var
+    reg: Novela;
+    pos: integer;
+    encontrada: boolean;
+begin
+    // Paso 1: Resetear el archivo
+    reset(arch);
+    
+    // Paso 2: Inicializar variables
+    encontrada := False;
+    
+    // Paso 3: Leer la cabecera
+    Read(arch, reg);
+    
+    // Paso 4: Búsqueda de la novela
+    while (not Eof(arch)) and (not encontrada) do
+    begin
+        if reg.codigo <> cod then
+            Read(arch, reg) // Leer el siguiente registro del archivo
+        else
+            encontrada := True; // Hemos encontrado la novela
+    end;
+    
+    // Paso 5: Borrar la novela si se encontró
+    if encontrada then
+    begin
+        // Guardar la posición del registro a borrar
+        pos := FilePos(arch) - 1;
+        
+        // Nos movemos al inicio del archivo para leer el registro cabecera
+        Seek(arch, 0);
+        
+        // Copiamos el registro cabecera en el registro que vamos a borrar
+        read(arch, reg);
+        
+        // Nos movemos a la posición del registro a borrar
+        Seek(arch, pos);
+        
+        // Escribimos el registro cabecera en la posición del registro a borrar
+        // Esto marca el registro como borrado
+        write(arch, reg);
+        
+        // Modificamos el código de la novela a borrar, marcándolo con un valor negativo
+        // para indicar que está disponible para ser sobreescrito
+        reg.codigo := -pos;
+        
+        // Escribimos el registro cabecera modificado de vuelta al inicio del archivo
+        // para actualizar la lista invertida
+        Seek(arch, 0);
+        Write(arch, reg);
+        
+        // Mostramos un mensaje indicando que la novela fue borrada exitosamente
+        Writeln('Novela borrada exitosamente.');
+    end
+    else
+    begin
+        // Paso 6: Manejo del caso en que la novela no se encontró
+        WriteLn('No se encontró la novela con el código especificado.');
+    end;
+    
+    // Paso 7: Cerrar el archivo
+    close(arch);
+end;
+Este procedimiento realiza los siguientes pasos:
+
+Resetear el archivo: Abrimos el archivo en modo de lectura (reset(arch)).
+Inicializar variables: Creamos una variable booleana encontrada y la inicializamos como False.
+Leer la cabecera: Leemos el primer registro del archivo, que contiene información sobre el espacio libre y la estructura del archivo.
+Búsqueda de la novela: Recorremos el archivo buscando la novela con el código especificado.
+Borrar la novela si se encontró: Si encontramos la novela, la marcamos como borrada y actualizamos la lista invertida en la cabecera del archivo.
+Manejo del caso en que la novela no se encontró: Si no encontramos la novela, mostramos un mensaje indicando que no se encontró.
+Cerrar el archivo: Finalmente, cerramos el archivo.
+
+
+
+
+
