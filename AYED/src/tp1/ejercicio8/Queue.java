@@ -3,7 +3,7 @@ import java.util.*;
 public class Queue<T> extends Sequence{
 	protected List<T>data; 
 	
-	//Constructor de la clase
+	//Constructor de la clase.
 	public Queue() {
 			this.data=new ArrayList<T>();
 	}
