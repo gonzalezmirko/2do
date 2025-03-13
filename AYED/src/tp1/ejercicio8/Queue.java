@@ -39,7 +39,7 @@ public class Queue<T> extends Sequence{
 	public String toString() {
 		String aux="";
 		for (int i=0;i<data.size();i++) {
-			aux += "Dato:"+data.get(0)+"\n";
+			aux += "Dato:"+data.get(i)+"\n";
 		}
 		return aux;
 	}
