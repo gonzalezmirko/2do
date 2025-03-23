@@ -49,7 +49,7 @@ public class TestBalanceo {
 	}
 	public static void main(String[] args) {
 		String prueba1="{()[()]}";
-		String prueba2="([)]";
+		String prueba2="([))";
 		//agregarACola(prueba1,pila);
 		//System.out.println(cola.toString());
 		if(estaBalanceado(prueba2)) {
