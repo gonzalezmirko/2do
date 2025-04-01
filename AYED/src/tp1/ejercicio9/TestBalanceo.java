@@ -34,7 +34,7 @@ public class TestBalanceo {
 			}
 			//si esta vacia la pila quiere decir que esta balanceado
 			else if(pila.isEmpty()) {
-				return false;
+				return true;
 			}
 			//si no esta vacia la cola 
 			else {
