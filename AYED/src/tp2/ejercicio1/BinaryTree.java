@@ -79,4 +79,54 @@ public class BinaryTree <T>{
 	public boolean hasRitghChild() {
 		return this.rightChild!=null;
 	}
+	
+	//Imprime el dato
+	@Override
+	public String toString() {
+		return "Dato:"+this.getData().toString();
+	}
+	
+	//PreOrden: primero raiz ,despues hijos
+	public void printPreOrden() {
+		System.out.println("Dato:"+this.toString());
+		if(this.hasLeftChild()) {
+			this.leftChild.printPreOrden();
+		}
+		if(this.hasRitghChild()) {
+			this.rightChild.printPreOrden();
+		}
+	}
+	
+	//InOrden: primero hijo izquierdo , despues raiz y ultimo hijo derecho
+	public void printInOrden() {
+		if(this.hasLeftChild()) {
+			this.leftChild.printInOrden();
+		}
+		System.out.println(this.toString());
+		if(this.hasRitghChild()) {
+			this.rightChild.printInOrden();
+		}
+	}
+	
+	//PostOrden: primeros hijos , despues raiz
+	public void printPostOrden() {
+		if(this.hasLeftChild()) {
+			this.leftChild.printPostOrden();
+		}
+		if(this.hasRitghChild()) {
+			this.rightChild.printPostOrden();
+		}
+		System.out.println(this.toString());
+	}
+	
+	public static void main(String[]args) {
+		BinaryTree<Integer>ab=new BinaryTree<Integer>(10);//raiz
+		ab.addLeftChild(new BinaryTree<Integer>(20));//hijo izq
+		ab.addRightChild(new BinaryTree<Integer>(30));//hijo der
+		ab.getLeftChild().addLeftChild(new BinaryTree<Integer>(40));//hijo izq hijo izq
+		ab.getLeftChild().addRightChild(new BinaryTree<Integer>(50));//hijo izq hijo der
+		//ab.printInOrden();// 40 20 50 10 30
+		//ab.printPostOrden(); //40 50 20 30 10
+		ab.printPreOrden();//10 20 40 50 30
+	}
 }
