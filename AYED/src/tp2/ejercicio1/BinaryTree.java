@@ -67,16 +67,16 @@ public class BinaryTree <T>{
 	
 	//El método isLeaf() indica si no tiene hijos.
 	public boolean isLeaf() {
-		return this.hasLeftChild() && this.hasRitghChild();
+		return !this.hasLeftChild() && !this.hasRitghChild();
 	}
 	
 	//El método hasLeftChild() devuelve un booleano indicando si tiene dicho hijo el árbol receptor del mensaje.
 	public boolean hasLeftChild() {
-		return this.leftChild.getData().equals(null) && this.leftChild==null;
+		return this.leftChild!=null;
 	}
 	
 	//El método hasRightChild() devuelve un booleano indicando si tiene dicho hijo el árbol receptor del mensaje.
 	public boolean hasRitghChild() {
-		return this.rightChild.getData().equals(null) && this.rightChild==null;
+		return this.rightChild!=null;
 	}
 }
