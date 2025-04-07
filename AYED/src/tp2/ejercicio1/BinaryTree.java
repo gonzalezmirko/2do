@@ -1,5 +1,6 @@
 package tp2.ejercicio1;
-
+import tp1.ejercicio8.Queue;
+//ejercicio 1 y 2; falta por ahora entreNiveles() del ejercicio 2
 public class BinaryTree <T>{
 	private T data;
 	private BinaryTree<T> leftChild;
@@ -119,14 +120,88 @@ public class BinaryTree <T>{
 		System.out.println(this.toString());
 	}
 	
+	//EntreNiveles: Imprime los datos de los niveles del arbol
+	public void printEntreNiveles() {
+		Queue<BinaryTree<T>> cola=new Queue<BinaryTree<T>>();
+		
+		//encolas el dato
+		cola.enqueue(this);
+		//encolas una marca de nivel
+		cola.enqueue(null);
+		/*
+		 *  10
+		 * 20 30
+		 */
+		while(!cola.isEmpty()) {
+			BinaryTree<T> ab=cola.dequeue();
+			if(ab!=null) {
+				System.out.println("Dato"+ab.getData().toString());
+				if(ab.hasLeftChild()) {
+					cola.enqueue(ab.getLeftChild());
+				}
+				if(ab.hasRitghChild()) {
+					cola.enqueue(ab.getRightChild());
+				}
+			}
+			else {
+				if(!cola.isEmpty()) {
+					cola.enqueue(null);
+				}
+			}
+		}
+	}
+	
+	//contarHojas():int Devuelve la cantidad de árbol/subárbol hojas del árbol receptor.
+	public int contarHojas() {
+		if(this.isEmpty()) {
+			return 0;
+		}
+		else {
+			int sumarHojas=0;
+			if(this.isLeaf()) {
+				return sumarHojas + 1;
+			}
+			else {
+				return this.getLeftChild().contarHojas()+this.getRightChild().contarHojas();
+			}
+		}
+	}
+	
+	//espejo(): BinaryTree<T> Devuelve el árbol binario espejo del árbol receptor.
+	public BinaryTree<T> espejo(){
+		if(this.isEmpty()) {
+			return null;
+		}
+		else {
+			BinaryTree<T> ab=new BinaryTree<T>();
+			if(this.hasLeftChild()) {
+				ab.addRightChild(this.getLeftChild());
+				return this.getLeftChild().espejo();
+			}
+			if(this.hasRitghChild()) {
+				ab.addLeftChild(this.getRightChild());
+				return this.getRightChild().espejo();
+			}
+			return ab;
+		}
+	}
+	
 	public static void main(String[]args) {
 		BinaryTree<Integer>ab=new BinaryTree<Integer>(10);//raiz
 		ab.addLeftChild(new BinaryTree<Integer>(20));//hijo izq
 		ab.addRightChild(new BinaryTree<Integer>(30));//hijo der
 		ab.getLeftChild().addLeftChild(new BinaryTree<Integer>(40));//hijo izq hijo izq
 		ab.getLeftChild().addRightChild(new BinaryTree<Integer>(50));//hijo izq hijo der
+		
+		/*
+		 	10
+		 20		30
+		40 50
+		 */
 		//ab.printInOrden();// 40 20 50 10 30
 		//ab.printPostOrden(); //40 50 20 30 10
-		ab.printPreOrden();//10 20 40 50 30
+		//ab.printPreOrden();//10 20 40 50 30
+		//ab.printEntreNiveles();
+		//System.out.println("Contar Hojas:"+ab.contarHojas());
 	}
 }
