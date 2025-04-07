@@ -185,6 +185,50 @@ public class BinaryTree <T>{
 			return ab;
 		}
 	}
+	/*
+	 * c)	entreNiveles(int n, m) Imprime el recorrido por niveles de los elementos del árbol 
+	 receptor entre los niveles n y m (ambos inclusive). (0≤n<m≤altura del árbol)
+	 */
+	public void entreNiveles(int n,int m) {
+		if(this.isEmpty()||n<0||n>m) {
+			System.out.println("Esta vacio o indices incorrectos.");
+		}
+		else {
+			Queue<BinaryTree<T>> cola=new Queue<BinaryTree<T>>();
+			cola.enqueue(this);
+			cola.enqueue(null);
+			int nivel=0;
+			while(!cola.isEmpty() && nivel<=m) {
+				BinaryTree<T>ab=cola.dequeue();
+				if(ab!=null) {
+					System.out.println("------->NIVEL "+nivel+" <------");
+					if((nivel>=n) && (nivel<=m)) {
+						System.out.println("Dato:"+ab.getData().toString());
+						if(nivel<m) {// para no encolar demas los hijos .
+							if(ab.hasLeftChild()) {
+								cola.enqueue(ab.getLeftChild());
+							}
+							if(ab.hasRitghChild()) {
+								cola.enqueue(ab.getRightChild());
+							}
+						}
+					}
+				}
+				else {
+					if(!cola.isEmpty()) {
+						cola.enqueue(null);
+						nivel++;
+					}
+				}
+			}
+			//prueba 
+			/*
+			if(!cola.isEmpty()) {
+				System.out.println("hay datos");
+			}
+			*/
+		}
+	}
 	
 	public static void main(String[]args) {
 		BinaryTree<Integer>ab=new BinaryTree<Integer>(10);//raiz
@@ -203,5 +247,6 @@ public class BinaryTree <T>{
 		//ab.printPreOrden();//10 20 40 50 30
 		//ab.printEntreNiveles();
 		//System.out.println("Contar Hojas:"+ab.contarHojas());
+		ab.entreNiveles(0, 2);
 	}
 }
