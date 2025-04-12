@@ -15,7 +15,7 @@ public class Transformacion {
 	public Transformacion(BinaryTree<Integer> arbol) {
 		this.arbol=arbol;
 	}
-	//Modifico el arbol de la variable de instancia por que no me salio hacer un nuevo arbol.
+	//Modifico el arbol de la variable de instancia por que no me salio hacer un nuevo arbol.-->ya me salio 
 	private int sumaRecursiva(BinaryTree<Integer>ab){
 		int sumaTotal=0;
 		//creo que podria tener una sola variable pero queda mas legible asi
@@ -41,12 +41,36 @@ public class Transformacion {
 		return sumaTotal+aux;
 		
 	}
+	
+	//Forma alternativa de hacerlo
+	public BinaryTree<Integer>sumaRecursivaAlternativa(BinaryTree<Integer>ab){
+		//podria ser sin parametros 
+		int suma=0;
+		BinaryTree<Integer>nuevoArbol=new BinaryTree<Integer>();
+		BinaryTree<Integer>izq=new BinaryTree<Integer>();
+		BinaryTree<Integer>der=new BinaryTree<Integer>();
+		if(ab.isLeaf()) {
+			nuevoArbol.setData(0);
+		}
+		if(ab.hasLeftChild()) {
+			izq = sumaRecursivaAlternativa(ab.getLeftChild());
+			suma+= izq.getData()+ab.getLeftChild().getData();
+			nuevoArbol.addLeftChild(izq);
+		}
+		if(ab.hasRitghChild()) {
+			der=sumaRecursivaAlternativa(ab.getRightChild()); 
+			suma +=der.getData()+ab.getRightChild().getData();
+			nuevoArbol.addRightChild(der);
+		}
+		nuevoArbol.setData(suma);
+		return nuevoArbol;
+	}
 	public BinaryTree<Integer>suma(){
 		if(this.arbol.isEmpty()) {
 			return null;
 		}
-		sumaRecursiva(this.arbol);
-		return this.arbol;
+		//sumaRecursiva(this.arbol);
+		return sumaRecursivaAlternativa(this.arbol);
 	}
 	public static void main(String[] args) {
 		/*
@@ -73,7 +97,6 @@ public class Transformacion {
 		//arbol.printInOrden();			
 		BinaryTree<Integer>ab=transformacion.suma();
 		ab.printEntreNiveles();
-
 	}
 
 }
