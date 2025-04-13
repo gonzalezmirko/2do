@@ -47,18 +47,16 @@ public class Transformacion {
 		//podria ser sin parametros 
 		int suma=0;
 		BinaryTree<Integer>nuevoArbol=new BinaryTree<Integer>();
-		BinaryTree<Integer>izq=new BinaryTree<Integer>();
-		BinaryTree<Integer>der=new BinaryTree<Integer>();
 		if(ab.isLeaf()) {
 			nuevoArbol.setData(0);
 		}
 		if(ab.hasLeftChild()) {
-			izq = sumaRecursivaAlternativa(ab.getLeftChild());
+			BinaryTree<Integer> izq = sumaRecursivaAlternativa(ab.getLeftChild());
 			suma+= izq.getData()+ab.getLeftChild().getData();
 			nuevoArbol.addLeftChild(izq);
 		}
 		if(ab.hasRitghChild()) {
-			der=sumaRecursivaAlternativa(ab.getRightChild()); 
+			BinaryTree<Integer>der=sumaRecursivaAlternativa(ab.getRightChild()); 
 			suma +=der.getData()+ab.getRightChild().getData();
 			nuevoArbol.addRightChild(der);
 		}
@@ -80,11 +78,14 @@ public class Transformacion {
 		  				|7| |8|		
 		 */
 		BinaryTree<Integer>arbol=new BinaryTree<Integer>(1);
+		
 		BinaryTree<Integer>hijoIzq=new BinaryTree<Integer>(2);
 		BinaryTree<Integer>hijoDer=new BinaryTree<Integer>(3);
+		
 		BinaryTree<Integer>subHijoIzqDer=new BinaryTree<Integer>(4);
 		BinaryTree<Integer>subHijoDerIzq=new BinaryTree<Integer>(5);
 		BinaryTree<Integer>subHijoDerDer=new BinaryTree<Integer>(6);
+		
 		subHijoDerIzq.addLeftChild(new BinaryTree<Integer>(7));
 		subHijoDerIzq.addRightChild(new BinaryTree<Integer>(8));
 		hijoIzq.addRightChild(subHijoIzqDer);
@@ -96,7 +97,7 @@ public class Transformacion {
 		Transformacion transformacion=new Transformacion(arbol);
 		//arbol.printInOrden();			
 		BinaryTree<Integer>ab=transformacion.suma();
-		ab.printEntreNiveles();
+		ab.entreNiveles(0, 4);;
 	}
 
 }
