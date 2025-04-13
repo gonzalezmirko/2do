@@ -1,4 +1,4 @@
-package tp2.ejercicioo3;
+package tp2.ejercicio3;
 
 import java.util.*;
 import tp2.ejercicio1.*;
@@ -68,4 +68,5 @@ public class ContadorArbol {
 		}
 	}
 }
+
 
