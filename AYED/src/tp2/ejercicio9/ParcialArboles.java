@@ -12,31 +12,47 @@ public class ParcialArboles {
 	private BinaryTree<SumAndDif> sumAndDifRec(BinaryTree<Integer> arbol,int sumaAcumulada,Integer padre){
 		int valorActual=arbol.getData();
 		int suma=sumaAcumulada+valorActual;
-		int dif=0;
+		int dif=valorActual;
 		if(padre!=null) {
 			dif=valorActual-padre;
 		}
-		SumAndDif sad=new SumAndDif(suma,dif);
+		SumAndDif sad=new SumAndDif(suma,dif);//
 		BinaryTree<SumAndDif>nuevoArbol=new BinaryTree<SumAndDif>(sad);
 		if(arbol.hasLeftChild()) {
-			BinaryTree<SumAndDif> izq=sumAndDifRec(arbol.getLeftChild(),suma,dif);
+			BinaryTree<SumAndDif> izq=sumAndDifRec(arbol.getLeftChild(),suma,valorActual);
 			nuevoArbol.addLeftChild(izq);
 		}
 		if(arbol.hasRitghChild()) {
-			BinaryTree<SumAndDif> der=sumAndDifRec(arbol.getRightChild(),suma,dif);
+			BinaryTree<SumAndDif> der=sumAndDifRec(arbol.getRightChild(),suma,valorActual);
 			nuevoArbol.addRightChild(der);
 		}
 		return nuevoArbol;
 	}
-	public BinaryTree<?> sumAndDif(BinaryTree<Integer> arbol){
+	public BinaryTree<SumAndDif> sumAndDif(BinaryTree<Integer> arbol){
 		if(arbol.isEmpty()) {
 			return null;
 		}
 		return sumAndDifRec(arbol,0,null);
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		BinaryTree<Integer>arbol=new BinaryTree<Integer>(20);
+		
+		arbol.addLeftChild(new BinaryTree<Integer>(5));
+		arbol.addRightChild(new BinaryTree<Integer>(30));
+		
+		arbol.getLeftChild().addLeftChild(new BinaryTree<Integer>(-5));
+		arbol.getLeftChild().addRightChild(new BinaryTree<Integer>(10));
+		arbol.getRightChild().addLeftChild(new BinaryTree<Integer>(50));
+		arbol.getRightChild().addRightChild(new BinaryTree<Integer>(-9));
+		
+		arbol.getLeftChild().getRightChild().addLeftChild(new BinaryTree<Integer>(1));
+		arbol.getRightChild().getLeftChild().addRightChild(new BinaryTree<Integer>(4));
+		
+		arbol.getRightChild().getLeftChild().getRightChild().addRightChild(new BinaryTree<Integer>(6));
+		
+		ParcialArboles par=new ParcialArboles();
+		BinaryTree<SumAndDif> arbolNuevo=par.sumAndDif(arbol);
+		arbolNuevo.entreNiveles(0, 4);
 	}
 
 }

@@ -43,7 +43,7 @@ public class Transformacion {
 	}
 	
 	//Forma alternativa de hacerlo
-	public BinaryTree<Integer>sumaRecursivaAlternativa(BinaryTree<Integer>ab){
+	private BinaryTree<Integer>sumaRecursivaAlternativa(BinaryTree<Integer>ab){
 		//podria ser sin parametros 
 		int suma=0;
 		BinaryTree<Integer>nuevoArbol=new BinaryTree<Integer>();
@@ -56,13 +56,16 @@ public class Transformacion {
 			nuevoArbol.addLeftChild(izq);
 		}
 		if(ab.hasRitghChild()) {
-			BinaryTree<Integer>der=sumaRecursivaAlternativa(ab.getRightChild()); 
+			BinaryTree<Integer>der=sumaRecursivaAlternativa(ab.getRightChild());
 			suma +=der.getData()+ab.getRightChild().getData();
 			nuevoArbol.addRightChild(der);
 		}
 		nuevoArbol.setData(suma);
 		return nuevoArbol;
 	}
+	/*
+	 	
+	 */
 	public BinaryTree<Integer>suma(){
 		if(this.arbol.isEmpty()) {
 			return null;
