@@ -50,7 +50,7 @@ public class GeneralTree <T>{
 	
 	//El método hasChildren() devuelve verdadero si la lista de hijos del árbol no es null y tampoco es vacía.
 	public boolean hasChildren() {
-		return this.children!=null && !this.isEmpty();
+		return this.children!=null && !this.children.isEmpty();
 	}
 	
 	//El método isEmpty() devuelve verdadero si el dato del árbol es null y además no tiene hijos.
