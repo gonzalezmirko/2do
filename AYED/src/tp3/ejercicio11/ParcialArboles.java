@@ -63,7 +63,7 @@ public class ParcialArboles {
 		arbol.getChildren().get(0).getChildren().get(1).getChildren().get(2).addChild(new GeneralTree<Integer>(12));
 		arbol.getChildren().get(0).getChildren().get(1).getChildren().get(2).addChild(new GeneralTree<Integer>(17));
 		arbol.getChildren().get(0).getChildren().get(1).getChildren().get(2).addChild(new GeneralTree<Integer>(9));
-		//arbol.entreNiveles();
+		arbol.entreNiveles();
 		if(resolver(arbol)) {
 			System.out.println("El arbol es creciente.");
 		}

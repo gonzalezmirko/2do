@@ -47,7 +47,25 @@ public class ParcialArboles {
 		return mejorCamino;
 	}
 	public static void main(String[] args) {
-
+		GeneralTree<Integer>arbol=new GeneralTree<Integer>(1);
+		arbol.addChild(new GeneralTree<Integer>(0));
+		arbol.addChild(new GeneralTree<Integer>(1));
+		arbol.addChild(new GeneralTree<Integer>(1));
+		arbol.getChildren().get(0).addChild(new GeneralTree<Integer>(1));
+		arbol.getChildren().get(0).addChild(new GeneralTree<Integer>(1));
+		arbol.getChildren().get(1).addChild(new GeneralTree<Integer>(1));
+		arbol.getChildren().get(1).addChild(new GeneralTree<Integer>(0));
+		arbol.getChildren().get(2).addChild(new GeneralTree<Integer>(0));
+		arbol.getChildren().get(0).getChildren().get(0).addChild(new GeneralTree<Integer>(1));
+		arbol.getChildren().get(0).getChildren().get(0).addChild(new GeneralTree<Integer>(1));
+		arbol.getChildren().get(0).getChildren().get(0).addChild(new GeneralTree<Integer>(1));	
+		arbol.getChildren().get(1).getChildren().get(1).addChild(new GeneralTree<Integer>(0));
+		arbol.getChildren().get(2).getChildren().get(0).addChild(new GeneralTree<Integer>(0));
+		arbol.getChildren().get(1).getChildren().get(1).getChildren().get(0).addChild(new GeneralTree<Integer>(1));
+		arbol.getChildren().get(2).getChildren().get(0).getChildren().get(0).addChild(new GeneralTree<Integer>(0));
+		arbol.getChildren().get(2).getChildren().get(0).getChildren().get(0).addChild(new GeneralTree<Integer>(0));
+		//arbol.entreNiveles();
+		System.out.println("Mejor Camino:"+resolver(arbol));
 	}
 
 }

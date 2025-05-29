@@ -18,7 +18,8 @@ public class Caminos {
 	}
 	private boolean caminoAHojaMasLejanaRec(GeneralTree<Integer>arbol,List<Integer>lista,List<Integer>listaMax) {
 		boolean encontreHoja=false;
-		lista.add(arbol.getData());
+		lista.add(arbol.getData());//lista : 12 
+									//listaMax:12 17 6 1
 		if(arbol.isLeaf()) {
 			if(lista.size()>listaMax.size()) {
 				listaMax.clear();
@@ -27,17 +28,17 @@ public class Caminos {
 		}
 		else {
 			for(GeneralTree<Integer>child:arbol.getChildren()) {
-				encontreHoja=caminoAHojaMasLejanaRec(child,lista,listaMax);
+				encontreHoja=caminoAHojaMasLejanaRec(child,lista,listaMax);// 12 9
 			}
 		}
 		lista.remove(lista.size()-1);
 		return encontreHoja;
 	}
 	public List<Integer> caminoAHojaMasLejana (){
-		List<Integer>lista=new LinkedList<Integer>();
+		//List<Integer>lista=new LinkedList<Integer>();
 		List<Integer>listaMax=new LinkedList<Integer>();
 		if(this.arbol!=null && !this.arbol.isEmpty()) {
-			caminoAHojaMasLejanaRec(this.arbol,lista,listaMax);
+			caminoAHojaMasLejanaRec(this.arbol,new LinkedList<Integer>(),listaMax);
 		}
 		return listaMax;
 	}
