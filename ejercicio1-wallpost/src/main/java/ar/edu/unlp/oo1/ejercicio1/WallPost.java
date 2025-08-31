@@ -1,6 +1,6 @@
 package ar.edu.unlp.oo1.ejercicio1;
 /*
- * DUDA->> 1)los metodos no tienen ni public ni private
+ * DUDA->> 1)Los metodos no tienen ni public ni private
  */
 /**
  Debemos definir una clase Wallpost con los siguientes atributos: un texto que se desea publicar, 
