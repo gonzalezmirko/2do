@@ -1,0 +1,17 @@
+# Ignorar archivos de Eclipse
+*.classpath
+*.project
+*.settings/
+target/
+
+# Ignorar archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar ejercicios que no quiero subir
+ejercicio8/
+ejercicio9/
+ejercicio10/
+ejercicio11/
+ejercicio12/
+ejercicio14/
