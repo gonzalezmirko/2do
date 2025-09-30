@@ -1,0 +1,13 @@
+[Project]
+FileName=C:\Users\LENOVO\Desktop\2.1 FOD\tps\ej1.dp
+Name=ej1
+MainUnit=Untitled1
+UnitCount=2
+ResFiles=C:\Users\LENOVO\Desktop\2.1 FOD\tps\rsrc.rc
+NoConsole=1
+IsDll=0
+Icon=C:\Dev-Pas\bin\Mainicon.ico
+[Unit1]
+FileName=Untitled1
+[Unit2]
+FileName=Untitled2
