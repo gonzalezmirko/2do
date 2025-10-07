@@ -51,6 +51,11 @@ public class DateLapse implements DateLapseInterface{
 	public int sizeInDays() {
 		return (int) ChronoUnit.DAYS.between(from, to);
 	}
+	
+	//mas facil asi
+	public int sizeInDays2() {
+		return from.until(to).getDays();
+	}
 
 	/*
 	Investigue cómo hacer para determinar si la fecha de hoy se encuentra entre las fechas 15/12/1972 y 15/12/2032.

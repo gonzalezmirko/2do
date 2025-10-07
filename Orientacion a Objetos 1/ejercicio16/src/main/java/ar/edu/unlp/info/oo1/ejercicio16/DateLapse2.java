@@ -18,6 +18,9 @@ public class DateLapse2 implements DateLapseInterface{
 		return this.from.plusDays(sizeInDays);
 	}
 	
+	public int sizeInDays2() {
+		return from.until(this.getTo()).getDays();
+	}
 	public int sizeInDays() {
 		return (int) ChronoUnit.DAYS.between(this.from, this.getTo());
 	}
